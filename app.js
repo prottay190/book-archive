@@ -14,11 +14,10 @@ const searchBook = () =>{
 
 //display search result
 const displaySearch = books => {
-    // console.log(books)
-    const searchResult = document.getElementById('search-result')
+    const searchResult = document.getElementById('search-result');
     searchResult.textContent = '';
+    document.getElementById('error-massege').style.display = 'block';
     books.forEach(book => {
-        console.log(book)
         const div = document.createElement('div');
         div.classList.add('col')
         div.innerHTML = `
