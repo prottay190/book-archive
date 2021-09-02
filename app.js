@@ -1,7 +1,6 @@
 const searchBook = () =>{
     const searchField = document.getElementById('search-field');
     const searchText = searchField.value;
-    // console.log(searchText)
         // cleat data
         searchField.value = '';
 
@@ -14,9 +13,11 @@ const searchBook = () =>{
 
 //display search result
 const displaySearch = books => {
+    document.getElementById('total-found').innerHTML =`
+       <h1 class="text-center text-info"> Total Books Found: ${books.length}</h1>
+    `;
     const searchResult = document.getElementById('search-result');
     searchResult.textContent = '';
-    document.getElementById('error-massege').style.display = 'block';
     books.forEach(book => {
         const div = document.createElement('div');
         div.classList.add('col')
@@ -26,7 +27,7 @@ const displaySearch = books => {
          <div class="card-body">
          <h2 class="card-title">Book Name: ${book.title}</h2>
          <h4> Athor Name: ${book.author_name}</h4>
-         <h4> Publisher Name: ${book.publisher}</h4>
+         <p> Publisher Name: ${book.publisher}</p>
          <h5>First Publish year: ${book.first_publish_year}</h5>
          </div>
          </div>
@@ -35,5 +36,3 @@ const displaySearch = books => {
     });
 
 }
-
-
